@@ -2,6 +2,7 @@
 #include<string.h>
 #include <assert.h>
 #include "ft_printf.h"
+
 void testsuccess()
 {
 	puts("\x1b[35m");
@@ -324,6 +325,36 @@ int escapetest()
 		return (0);
 	}
 }
+
+int discordtest()
+{
+	char libbuf[8192];
+	char ftbuf[8192];
+	int i,j;
+	char *s = NULL;
+	unsigned int index = 42;
+	setvbuf(stdout, libbuf, _IOFBF, sizeof(libbuf));
+	i = printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,&i,"hello",s);
+	fflush(stdout);
+	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
+	j = ft_printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,  &i,"hello",s);
+
+	fflush(stdout);
+	printf("lib_charcount : %d -- ft_charcount : %d \n",i,j);
+	if (strcmp(libbuf,ftbuf) && i == j)
+	{
+		testsuccess();
+		return (1);
+	}
+	else
+	{
+		testfailled();
+		puts("hints-> ???");
+		return (0);
+	}
+	return (0);
+}
+
 int main(void)
 {
 	int i;
@@ -351,6 +382,8 @@ int main(void)
 	res += utest();
 	i += teststart(strdup("%% test"),i + 1);
 	res += escapetest();
+	i += teststart(strdup("discord test"),i + 1);
+	res += discordtest();
 	puts("\n\n");
 	puts("\x1b[32m");
 	puts("TEST RESULT\n");
