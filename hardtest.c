@@ -334,10 +334,10 @@ int discordtest()
 	char *s = NULL;
 	unsigned int index = 42;
 	setvbuf(stdout, libbuf, _IOFBF, sizeof(libbuf));
-	i = printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,&i,"hello",s);
+	i = printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,&index,"hello",s);
 	fflush(stdout);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
-	j = ft_printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,  &i,"hello",s);
+	j = ft_printf("|%d|%i|%d|%u|%x|%p|%s|%s|\n",0,INT_MIN,INT_MAX,index,UINT_MAX,  &index,"hello",s);
 
 	fflush(stdout);
 	printf("lib_charcount : %d -- ft_charcount : %d \n",i,j);
@@ -389,6 +389,6 @@ int main(void)
 	puts("TEST RESULT\n");
 	printf("%d / %d\n",i,res);
 	if (res == i)
-		puts("normal test clear");
+		puts("hard test clear");
 	puts("\x1b[39m");
 }
