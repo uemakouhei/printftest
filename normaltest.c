@@ -41,6 +41,7 @@ int basictest()
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	i = ft_printf("%s%%%c%%%d%%%i%%%x%%%X%%%p%%%u\n",str,a,d,e,f,f,str2,number);
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -71,6 +72,7 @@ int ctest()
 	i = ft_printf("%c%c%c\n",s,b,c);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -101,6 +103,7 @@ int dtest()
 	i = ft_printf("%d%d%d\n",s,b,c);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -131,6 +134,7 @@ int xtest()
 	i = ft_printf("%x%x%x\n",s,b,c);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -161,6 +165,7 @@ int Xtest()
 	i = ft_printf("%X%X%X\n",s,b,c);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -191,6 +196,7 @@ int itest()
 	i = ft_printf("%i%i%i\n",s,b,c);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -221,6 +227,7 @@ int stest()
 	i = ft_printf("%s%s%s\n",s,s2,s3);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -251,6 +258,7 @@ int ptest()
 	i = ft_printf("%p%p%p\n",s,s2,&s3);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -281,6 +289,7 @@ int utest()
 	i = ft_printf("%u%u%u\n",d,s,k);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	printf ("lib %d : ft : %d",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
@@ -312,6 +321,7 @@ int escapetest()
 	i = ft_printf("%%%%%s%%\n",str);
 	setvbuf(stdout, ftbuf, _IOFBF, sizeof(ftbuf));
 	fflush(stdout);
+	 printf("lib %d, ft %d\n",j,i);
 	if (strcmp(libbuf,ftbuf) && i == j)
 	{
 		testsuccess();
